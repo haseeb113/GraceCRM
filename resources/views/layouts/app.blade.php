@@ -17,6 +17,10 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>
+    @if(auth()->check() && auth()->user()->hasRole('Admin'))
+    @include('partials.sidebar') {{-- create this --}}
+@endif
+
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
